@@ -7,40 +7,32 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalTime;
+import java.math.BigDecimal;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "tb_renda")
 
-@Table(name = "tb_movimentacao")
-public class Movimentacao {
+
+public class Renda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
-    private Double valor;
-
-
-    @Enumerated(EnumType.STRING)
-    private TipoPagamento tipoPagamento;
+    private String nome;
+    private BigDecimal valor;
 
 
     @Enumerated(EnumType.STRING)
-    private TipoMovimentacao tipoMovimentacao;
-
-    private LocalTime horaTrancacao;
+    private TipoRenda tipoRenda;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     @JsonBackReference
     Usuario usuario;
-
-
-
-
 
 
 }
