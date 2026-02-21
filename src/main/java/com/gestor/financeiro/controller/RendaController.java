@@ -32,4 +32,10 @@ public class RendaController {
         return service.listarRenda();
 
    }
+
+   @DeleteMapping("/{id}")
+    public  void deletarRendaById(@PathVariable Long id){
+        service.deletarRendaById(id);
+   }
+
 }

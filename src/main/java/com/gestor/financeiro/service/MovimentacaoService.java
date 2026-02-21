@@ -19,9 +19,7 @@ public class MovimentacaoService {
     }
 
     public Movimentacao criarMovimentacao(Movimentacao movimentacao){
-        if( movimentacao.getValor()==null || movimentacao.getValor()<=0){
-            throw new ValorMovimentacaoInvalidoException("O valor da movimentação nao pode ser igual ou menor que zero");
-        }
+
         return repository.save(movimentacao);
 
     }

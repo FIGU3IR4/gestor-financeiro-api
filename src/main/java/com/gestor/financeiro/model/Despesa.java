@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -22,7 +23,7 @@ public class Despesa {
     private Long id;
 
     private  String nome;
-    private Double valor;
+    private BigDecimal valor;
     private String Descricao;
 
     @Enumerated(EnumType.STRING)
