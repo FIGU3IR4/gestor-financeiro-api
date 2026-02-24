@@ -1,6 +1,7 @@
 package com.gestor.financeiro.controller;
 
 
+import com.gestor.financeiro.dto.UsuarioResponseDTO;
 import com.gestor.financeiro.model.Usuario;
 import com.gestor.financeiro.service.UsuarioService;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class UsuarioController {
 
     }
     @GetMapping
-    public List<Usuario> ListarUsuarios(){
+    public List<UsuarioResponseDTO> ListarUsuarios(){
         return  service.ListaUsuarios();
 
     }

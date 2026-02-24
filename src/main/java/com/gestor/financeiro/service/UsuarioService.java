@@ -1,12 +1,14 @@
 package com.gestor.financeiro.service;
 
 
+import com.gestor.financeiro.dto.UsuarioResponseDTO;
 import com.gestor.financeiro.exceptions.NomeVazioException;
 import com.gestor.financeiro.model.Usuario;
 import com.gestor.financeiro.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -36,10 +38,11 @@ public class UsuarioService {
 
     }
 
-    public List<Usuario> ListaUsuarios(){
-        return repository.findAll();
+    public List<UsuarioResponseDTO> ListaUsuarios(){
+        return repository.findAll().stream().map(u->new UsuarioResponseDTO(u.getId(), u.getNome())).toList();
 
     }
+
 
 
 }
