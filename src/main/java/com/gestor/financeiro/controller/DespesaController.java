@@ -28,4 +28,9 @@ public class DespesaController {
 
     }
 
+    @GetMapping("/{id}")
+    public List<Despesa> ListarDespesasByUsuarioId(@PathVariable Integer id){
+        return service.listarDespesasByUsuarioId(id);
+    }
+
 }

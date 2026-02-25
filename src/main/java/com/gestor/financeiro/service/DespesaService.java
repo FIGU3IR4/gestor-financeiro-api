@@ -34,4 +34,11 @@ public class DespesaService {
         return repository.findAll();
     }
 
+    public List<Despesa> listarDespesasByUsuarioId(Integer id){
+
+
+
+        return repository.findByUsuarioId(id);
+    }
+
 }
