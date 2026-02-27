@@ -1,6 +1,7 @@
 package com.gestor.financeiro.service;
 
 
+import com.gestor.financeiro.exceptions.IdInvalidoException;
 import com.gestor.financeiro.model.Despesa;
 import com.gestor.financeiro.repository.DespesaRepository;
 import org.springframework.stereotype.Service;
@@ -35,8 +36,6 @@ public class DespesaService {
     }
 
     public List<Despesa> listarDespesasByUsuarioId(Integer id){
-
-
 
         return repository.findByUsuarioId(id);
     }

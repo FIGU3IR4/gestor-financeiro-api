@@ -1,13 +1,16 @@
 package com.gestor.financeiro.service;
 
 
+import com.gestor.financeiro.exceptions.IdInvalidoException;
 import com.gestor.financeiro.exceptions.ValorInvalidoException;
+import com.gestor.financeiro.model.Despesa;
 import com.gestor.financeiro.model.Renda;
 import com.gestor.financeiro.repository.RendaRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RendaService {
@@ -41,6 +44,25 @@ public class RendaService {
             throw new ValorInvalidoException("Id nao existe");
         }
         repository.deleteById(id);
+    }
+
+    public List<Renda> listaRendaByUsuarioId(Integer id ){
+
+        List<Renda> renda = repository.findByUsuarioId(id);
+
+
+        if (renda.isEmpty()){
+            throw  new IdInvalidoException("Nenhuma despesa encotrada pra esse id");
+        }
+
+        return listaRendaByUsuarioId(id);
+
+    }
+
+
+    public List<Renda> listarRendaByUsuarioId(Integer id ){
+        return repository.findByUsuarioId(id);
+
     }
 
 

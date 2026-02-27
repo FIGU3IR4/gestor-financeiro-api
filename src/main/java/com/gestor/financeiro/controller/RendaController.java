@@ -38,4 +38,12 @@ public class RendaController {
         service.deletarRendaById(id);
    }
 
+
+
+   @GetMapping("/{id}")
+    public List<Renda> ListarRendaByUsuarioId(@PathVariable Integer id){
+        return  service.listarRendaByUsuarioId(id);
+
+   }
+
 }
